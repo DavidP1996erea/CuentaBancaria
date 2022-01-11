@@ -1,6 +1,6 @@
 package principal;
 
-public class Cuenta {
+public class  Cuenta {
 
     private String nombre;
     private String numeroCuenta;
@@ -10,7 +10,7 @@ public class Cuenta {
 
     // Constructor por defecto
 
-   public Cuenta(){
+   public Cuenta(Cuenta cuenta1){
 
     }
 
@@ -25,6 +25,8 @@ public class Cuenta {
         this.saldo=saldo;
 
     }
+
+
 
 
     // Método ingreso
@@ -56,9 +58,17 @@ public class Cuenta {
 
 
     // Método transferencia
-    public void transferencia(double importe){
+    public void transferencia(Cuenta cuentaorigen, Cuenta cuentadestino, double importe){
 
+        if(importe>cuentaorigen.getSaldo()){
 
+            System.out.println("Operación cancelada");
+
+        }else{
+            System.out.println("Operación realizada correctamente");
+            cuentaorigen.saldo = cuentaorigen.saldo - importe;
+            cuentadestino.saldo= cuentadestino.saldo + importe;
+        }
 
 
     }
@@ -68,34 +78,42 @@ public class Cuenta {
     // Métodos getters/setters
 
     public String getNombre() {
-        return nombre;
+
+       return nombre;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+
+       this.nombre = nombre;
     }
 
     public String getNumeroCuenta() {
-        return numeroCuenta;
+
+       return numeroCuenta;
     }
 
     public void setNumeroCuenta(String numeroCuenta) {
-        this.numeroCuenta = numeroCuenta;
+
+       this.numeroCuenta = numeroCuenta;
     }
 
     public double getTipoInteres() {
-        return tipoInteres;
+
+       return tipoInteres;
     }
 
     public void setTipoInteres(double tipoInteres) {
-        this.tipoInteres = tipoInteres;
+
+       this.tipoInteres = tipoInteres;
     }
 
     public double getSaldo() {
-        return saldo;
+
+       return saldo;
     }
 
     public void setSaldo(double saldo) {
-        this.saldo = saldo;
+
+       this.saldo = saldo;
     }
 }
