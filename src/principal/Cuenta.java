@@ -55,14 +55,22 @@ public class Cuenta {
     }
 
 
+
     // Método transferencia
-    public void transferencia(double importe){
+    public void transferencia(Cuenta cuentaorigen, Cuenta cuentadestino, double importe){
 
+        if(importe>cuentaorigen.getSaldo()){
 
+            System.out.println("Operación cancelada");
+
+        }else{
+            System.out.println("Operación realizada correctamente");
+            cuentaorigen.saldo = cuentaorigen.saldo - importe;
+            cuentadestino.saldo= cuentadestino.saldo + importe;
+        }
 
 
     }
-
 
 
     // Métodos getters/setters
